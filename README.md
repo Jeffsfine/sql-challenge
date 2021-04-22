@@ -15,6 +15,9 @@ List the following details of each employee: employee number, last name, first n
 - In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
 ## Data Modeling
-The employee data was modeled with an Entity-Relationship Diagrams (ERD) to start. This technique provides a clear visual understanding of the relationship between the different datasets used in .csv format.
+
+The employee data was modeled with an Entity-Relationship Diagram (ERD) to start. This technique provides a clear visual structure of the relationship between the different datasets used in .csv format.
+
+ERD Pictured:
 
 ![Employees_db_ERD](https://user-images.githubusercontent.com/74028387/115636941-117fea80-a2dd-11eb-891b-a08a9b9a2be8.png)
