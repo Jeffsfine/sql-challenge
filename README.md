@@ -21,3 +21,75 @@ The employee data was modeled with an Entity-Relationship Diagram (ERD) to start
 ERD Pictured:
 
 ![Employees_db_ERD](https://user-images.githubusercontent.com/74028387/115636941-117fea80-a2dd-11eb-891b-a08a9b9a2be8.png)
+
+## Data Engineering
+
+The ERD aided creation of table schemas for each of the .CSVs.
+
+Data types, primary keys, foreign keys, and other constraints are listed in-line.
+ 
+### `Departments`
+``` CREATE TABLE "departments" (
+    -- Department number is a primary key, and it is
+    -- aslo found in department employees and department manager list
+    "dept_no" VARCHAR   NOT NULL,
+    -- Department names
+    "dept_name" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_departments" PRIMARY KEY (
+        "dept_no"
+     )
+);
+```
+### `Ttiles`
+```CREATE TABLE "titles" (
+    -- Title id is a primary key,
+    -- and it also found in employees as emp_title_id
+    "title_id" VARCHAR   NOT NULL,
+    -- List of titles
+    "title" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_titles" PRIMARY KEY (
+        "title_id"
+     )
+);
+```
+### `Employees`
+```CREATE TABLE "employees" (
+    -- Employees number is a primary key
+    -- and also found in department employees, department manager
+    -- and salaries list
+    "emp_no" INT   NOT NULL,
+    -- Employees have a title id employees(emp_title_id)
+    -- So, this id has relationship with-
+    -- the composite foreign key titles(title_id)
+    "emp_title_id" VARCHAR   NOT NULL,
+    -- Employees birth date
+    "birth_date" DATE   NOT NULL,
+    -- Employees first name
+    "first_name" VARCHAR   NOT NULL,
+    -- Employees last name
+    "last_name" VARCHAR   NOT NULL,
+    -- Employees sex
+    "sex" VARCHAR   NOT NULL,
+    -- Employees hired date
+    "hire_date" DATE   NOT NULL,
+    CONSTRAINT "pk_employees" PRIMARY KEY (
+        "emp_no"
+     )
+);
+```
+### `Dept_emp`
+```CREATE TABLE "dept_emp" (
+    -- Employees number in department employees list and
+    -- which shared a unique key with employees(emp_no)
+    "emp_no" INT   NOT NULL,
+    -- Department number in department employees list and
+    -- which shared a unique key with dept_emp(dept_no)
+    "dept_no" VARCHAR   NOT NULL
+);
+```
+5
+```
+```
+6
+```
+```
