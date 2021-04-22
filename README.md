@@ -24,11 +24,11 @@ ERD Pictured:
 
 ## Data Engineering
 
-The ERD aided creation of table schemas for each of the .CSVs.
+The ERD aided creation of table schemas for each category: `employees`, `departments`, `salaries`, `titles`, `department managers`, and `department employees`.
 
 Data types, primary keys, foreign keys, and other constraints are listed in-line.
  
-### `Departments`
+### Departments
 ``` CREATE TABLE "departments" (
     -- Department number is a primary key, and it is
     -- aslo found in department employees and department manager list
@@ -40,7 +40,7 @@ Data types, primary keys, foreign keys, and other constraints are listed in-line
      )
 );
 ```
-### `Ttiles`
+### Ttiles
 ```CREATE TABLE "titles" (
     -- Title id is a primary key,
     -- and it also found in employees as emp_title_id
@@ -52,7 +52,7 @@ Data types, primary keys, foreign keys, and other constraints are listed in-line
      )
 );
 ```
-### `Employees`
+### Employees
 ```CREATE TABLE "employees" (
     -- Employees number is a primary key
     -- and also found in department employees, department manager
@@ -77,7 +77,7 @@ Data types, primary keys, foreign keys, and other constraints are listed in-line
      )
 );
 ```
-### `Dept_emp`
+### Department Employees
 ```CREATE TABLE "dept_emp" (
     -- Employees number in department employees list and
     -- which shared a unique key with employees(emp_no)
@@ -87,9 +87,22 @@ Data types, primary keys, foreign keys, and other constraints are listed in-line
     "dept_no" VARCHAR   NOT NULL
 );
 ```
-5
+### Department Manager
+```CREATE TABLE "dept_manager" (
+    -- Department number in department manger list and
+    -- which shared a unique key with dept_emp(dept_no)
+    "dept_no" VARCHAR   NOT NULL,
+    -- Employees number in department manger list and
+    -- which  shared a unique key with employees(emp_no)
+    "emp_no" INT   NOT NULL
+);
 ```
-```
-6
-```
+### Salaries
+```CREATE TABLE "salaries" (
+    -- Employees number in salaries and
+    -- which shared unique keys with employees(emp_no)
+    "emp_no" INT   NOT NULL,
+    -- Employees salaries
+    "salary" INT   NOT NULL
+);
 ```
